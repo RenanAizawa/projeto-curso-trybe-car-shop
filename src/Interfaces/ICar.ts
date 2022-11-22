@@ -1,6 +1,6 @@
-import ITransport from './ITrasport';
+import IVehicle from './IVehicle';
 
-export default interface ICar extends ITransport {
+export default interface ICar extends IVehicle {
   doorsQty: number;
   seatsQty: number;
 }

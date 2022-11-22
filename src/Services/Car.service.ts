@@ -5,7 +5,7 @@ import CarODM from '../Models/CarODM';
 export default class CarService {
   private createCarDomain(car: ICar | null): ICar | null {
     if (car) {
-      return new Car(car);
+      return new Car(car) as unknown as ICar;
     }
     return null;
   }
