@@ -8,6 +8,6 @@ const carRoute = Router();
 //   next: NextFunction,
 // ) => new CarController(req, res, next);
 
-carRoute.post('/', (req, res, next) => new CarController(req, res, next).newCar);
+carRoute.post('/', (req, res, next) => new CarController(req, res, next).newCar());
 
 export default carRoute;

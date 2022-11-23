@@ -22,7 +22,7 @@ export default class CarController {
       buyValue: this._req.body.buyValue,
       doorsQty: this._req.body.doorsQty,
       seatsQty: this._req.body.seatsQty,
-    };
+    };    
     try {
       const cadastro = await this.service.create(car);
       return this._res.status(201).json(cadastro);
