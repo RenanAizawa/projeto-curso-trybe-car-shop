@@ -1,4 +1,7 @@
-import { ApplyBasicQueryCasting, isValidObjectId, Model, model, Models, models, Schema } from 'mongoose';
+import {
+  ApplyBasicQueryCasting,
+  isValidObjectId, Model, model, Models, models, Schema,
+} from 'mongoose';
 import InvalidMongoId422 from '../Erros/Car422';
 import ICar from '../Interfaces/ICar';
 
