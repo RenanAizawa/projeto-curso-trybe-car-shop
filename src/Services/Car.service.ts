@@ -9,11 +9,8 @@ export default class CarService {
   constructor() {
     this.model = new CarODM();
   }
-  private createCarDomain(cars: ICar | null): Car | null {
-    if (cars) {
-      return new Car(cars);
-    }
-    return null;
+  private createCarDomain(cars: ICar): Car {
+    return new Car(cars);
   }
 
   public async create(car: ICar) {
