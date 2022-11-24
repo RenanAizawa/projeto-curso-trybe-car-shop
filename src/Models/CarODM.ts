@@ -1,4 +1,5 @@
-import { Model, model, models, Schema } from 'mongoose';
+import { ApplyBasicQueryCasting, isValidObjectId, Model, model, Models, models, Schema } from 'mongoose';
+import InvalidMongoId422 from '../Erros/Car422';
 import ICar from '../Interfaces/ICar';
 
 export default class CarODM {
@@ -20,5 +21,14 @@ export default class CarODM {
 
   public async create(car: ICar): Promise<ICar> {
     return this.model.create({ ...car });
+  }
+
+  public async findAll(): Promise<ICar[]> {
+    return this.model.find({});
+  }
+
+  public async findOneById(id: string): Promise<ApplyBasicQueryCasting<Models>> {
+    if (!isValidObjectId(id)) throw new InvalidMongoId422('Invalid mongo id');
+    return this.model.findById({ _id: id });
   }
 }

@@ -30,4 +30,23 @@ export default class CarController {
       this._next(error);
     }
   }
+
+  public async allCar() {
+    try {
+      const retorno = await this.service.findAll();
+      return this._res.status(201).json(retorno);
+    } catch (error) {
+      this._next(error);
+    }
+  }
+
+  public async findOne() {
+    const { id } = this._req.params;
+    try {
+      const retorno = await this.service.findById(id);
+      return this._res.status(201).json(retorno);
+    } catch (error) {
+      this._next(error);
+    }
+  }
 }
