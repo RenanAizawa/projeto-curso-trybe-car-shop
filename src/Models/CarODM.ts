@@ -1,6 +1,6 @@
 import {
   ApplyBasicQueryCasting,
-  isValidObjectId, Model, model, Models, models, Schema,
+  isValidObjectId, Model, model, Models, models, Schema
 } from 'mongoose';
 import InvalidMongoId422 from '../Erros/Car422';
 import ICar from '../Interfaces/ICar';
@@ -34,4 +34,12 @@ export default class CarODM {
     if (!isValidObjectId(id)) throw new InvalidMongoId422('Invalid mongo id');
     return this.model.findById({ _id: id });
   }
+
+  public async updateById(
+    id: string,
+    car: Partial<ICar>,
+  ): Promise<ApplyBasicQueryCasting<Models>> {
+    if (!isValidObjectId(id)) throw new InvalidMongoId422('Invalid mongo id');
+    return this.model.findByIdAndUpdate(id, { ...car }, { new: true });
+  } 
 }

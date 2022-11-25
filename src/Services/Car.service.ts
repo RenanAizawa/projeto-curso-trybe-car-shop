@@ -70,4 +70,29 @@ export default class CarService {
     };
     return this.createCarDomain(obj);
   }
+
+  public async findAndUpdate(ids: string, car: Partial<ICar>) {
+    const carN = await this.model.updateById(ids, car);
+    if (!carN) throw new CarNotFound404('Car not found');
+    const { _id: id,
+      status,
+      model,
+      year,
+      color,
+      buyValue,
+      doorsQty,
+      seatsQty,
+    } = carN as ApplyBasicQueryCasting<Models>;
+    const obj = {
+      id,
+      status,
+      model,
+      year,
+      color,
+      buyValue,
+      doorsQty,
+      seatsQty,
+    };
+    return this.createCarDomain(obj);
+  }
 }
