@@ -1,4 +1,4 @@
-import ICar from '../Interfaces/ICar';
+import IVehicle from '../Interfaces/IVehicle';
 
 export default class Vehicle {
   protected id?: string;
@@ -7,7 +7,7 @@ export default class Vehicle {
   protected color: string;
   protected status: boolean;
   protected buyValue: number;
-  constructor(car: ICar) {
+  constructor(car: IVehicle) {
     if (car.id) this.id = car.id;
     this.model = car.model;
     this.year = car.year;
