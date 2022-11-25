@@ -4,8 +4,8 @@ import sinon from 'sinon';
 import Motorcycle from '../../../src/Domains/Motorcycle';
 import MotorcycleService from '../../../src/Services/Motorcycle.service';
 import {
-    mockMotoID,
-    mockMotoIDUpdate, moto1, motoBody, motoBodyUpdate, motoUpdate1
+  mockMotoID,
+  mockMotoIDUpdate, moto1, motoBody, motoBodyUpdate, motoUpdate1,
 } from '../helpers';
 
 describe('Verificação de integridade do codigo de MotorcycleService', function () {
